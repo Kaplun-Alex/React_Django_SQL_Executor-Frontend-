@@ -1,5 +1,5 @@
 import React from 'react';
-import {Stack} from '@mui/material'
+import { Box } from '@mui/material';
 import FooterSectionComponent from '../components/FooterSectionComponent';
 import HeaderSectionComponent from '../components/HeaderSectionComponent';
 import MainSectionComponent from '../components/MainSectionComponent';
@@ -8,19 +8,24 @@ import MainSectionComponent from '../components/MainSectionComponent';
 const MainScreen = () =>{
   return (
     <>
-        <Stack> 
-            <HeaderSectionComponent/>
-        </Stack>
+      <section>
+        <header>
+          <HeaderSectionComponent/>
+        </header>
+      </section>
 
-        <Stack> 
-                <MainSectionComponent/>
-        </Stack>
+      <section>
+        <Box>
+          <MainSectionComponent/>
+        </Box>
+      </section>
 
-        <Stack position={'bottom'}>
-            <footer>
-                <FooterSectionComponent/>
-            </footer>
-        </Stack>
+      <section>
+        <footer>       
+          <FooterSectionComponent/>   
+        </footer>
+      </section>
+
     </>
   )
 }

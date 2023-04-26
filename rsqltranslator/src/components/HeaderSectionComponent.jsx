@@ -12,7 +12,6 @@ function HeaderSectionComponent() {
     return ( 
       <>
       <Box sx={{ flexGrow: 1 }}>
-
         <AppBar  sx={{ bgcolor: 'text.primary' }}>
           <Toolbar variant="dense">
             <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
@@ -23,7 +22,6 @@ function HeaderSectionComponent() {
             </Typography>
           </Toolbar>
         </AppBar>
-
       </Box>
       </> 
     );
