@@ -5,10 +5,11 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import WSVault from '../vaults/WorkServerVault';
+import { observer } from 'mobx-react-lite';
 
 
-
-function HeaderSectionComponent() {
+const HeaderSectionComponent = observer(() => {
     return ( 
       <>
       <Box sx={{ flexGrow: 1 }}>
@@ -18,13 +19,18 @@ function HeaderSectionComponent() {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" color="inherit" component="div">
-              SERVER:
+              SERVER: <div>
+                {WSVault.serverEndpoint.fullEndpoint}
+                </div>
             </Typography>
+            
           </Toolbar>
         </AppBar>
       </Box>
       </> 
     );
+
 }
+)
 
 export default HeaderSectionComponent;

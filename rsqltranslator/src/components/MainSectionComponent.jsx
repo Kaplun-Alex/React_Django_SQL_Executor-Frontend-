@@ -2,13 +2,14 @@ import React from 'react'
 import { Box} from '@mui/material';
 import SQLFormComponent from './SQLFormComponent';
 import SQLResult from './SQLResult';
+import ServerPointFieldComponent from './ServerPointFieldComponent';
 
 
 function MainSectionComponent() {
     return ( 
     <>
     <Box>
-      <p>working servers fields</p>
+      <ServerPointFieldComponent/>
     </Box>
     <Box>
       <SQLFormComponent/>
@@ -16,7 +17,6 @@ function MainSectionComponent() {
     <Box>
        <SQLResult/>
     </Box>
-
     </> 
     );
 }
