@@ -14,7 +14,7 @@ function FooterSectionComponent() {
         <AppBar position="static" sx={{ bgcolor: 'text.primary' }}>
           <Toolbar variant="dense">
              <Typography variant="h6" color="inherit" component="div">
-              STATUS
+              
             </Typography>
           </Toolbar>
         </AppBar>

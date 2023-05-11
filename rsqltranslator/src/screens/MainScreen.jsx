@@ -20,12 +20,6 @@ const MainScreen = () =>{
         </Box>
       </section>
 
-      <section>
-        <footer>       
-          <FooterSectionComponent/>   
-        </footer>
-      </section>
-
     </>
   )
 }
