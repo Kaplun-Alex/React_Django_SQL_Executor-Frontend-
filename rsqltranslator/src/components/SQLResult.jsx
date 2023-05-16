@@ -17,29 +17,40 @@ const SQLResult = observer(() => {
             <Button onClick={clearResultField}
               type="submit"
               variant="contained"
-              sx={{mt: 3, mb: 2, bgcolor: 'black'}} 
+              sx={{mt: 3, mb: 2, bgcolor: 'black', ":hover": {color: 'black', backgroundColor: 'white'}}} 
               style={{ width: "8%" }} 
             >
               Clear
         </Button>
         <div>
             <h1>
-                {CVault.constantList.SERVERENDPOINT}
+            Connect to server: {CVault.getServerEndpoint()}
             </h1>
         </div>
         <div>
             <h1>
-                {CVault.constantList.SQLFETCHQUERYSTRING}
+            Resource name: {CVault.getDatabaseName()}
             </h1>
         </div>
         <div>
             <h1>
-                Result:
+            User name: {CVault.getUserName()}
             </h1>
         </div>
         <div>
             <h1>
-                {CVault.constantList.SQLRESULT}
+            User password: {CVault.getUserPassword()}
+            </h1>
+        </div>
+        <div>
+            <h1>
+            SQL String: {CVault.getSQLFetchingQueryString()}
+            </h1>
+        </div>
+
+        <div>
+            <h1>
+                {CVault.getSQLResultValue()}
                 
             </h1>
         </div>

@@ -5,7 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import WSVault from '../vaults/WorkServerVault';
+import CVault from '../vaults/ConstantVault';
 import { observer } from 'mobx-react-lite';
 
 
@@ -20,7 +20,7 @@ const HeaderSectionComponent = observer(() => {
             </IconButton>
             <Typography variant="h6" color="inherit" component="div">
               SERVER: <div>
-                {WSVault.serverEndpoint.fullEndpoint}
+                {CVault.getServerEndpoint()}
                 </div>
             </Typography>
             

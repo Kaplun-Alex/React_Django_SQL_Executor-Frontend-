@@ -1,11 +1,7 @@
-import { TextField, Container} from "@mui/material";
+import { TextField, Container, Button, Box} from "@mui/material";
 import Stack from '@mui/material/Stack'
-import WSVault from "../vaults/WorkServerVault";
 import { useState } from "react";
 import CVault from "../vaults/ConstantVault";
-import ButtonGroup from '@mui/material/ButtonGroup';
-import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
 
 
 function ServerPointFieldComponent() {
@@ -14,27 +10,28 @@ function ServerPointFieldComponent() {
     const [databaseNameValue, setDatabaseNameValue] = useState()
     const [userNameValue, setUserNameValue] = useState()
     const [passwordValue, setPasswordValue] = useState()
-    
-    const changeServerEndpointValue = event => {
-      setServerEndpointValueValue(event.target.serverEndpointValue)
-    }
-    const changeDatabaseNameValue= event => {
-      setDatabaseNameValue(event.target.databaseNameValue)
-    }
-    const changeUserNameValue = event => {
-      setUserNameValue(event.target.userNameValue)
-    }
-    const changePasswordValue = event => {
-      setPasswordValue(event.target.passwordValue)
-    }
 
     const setConfigurationData = () => {
-      CVault.constantList.SERVERENDPOINT = "Connect to server:  " + serverEndpointValue
-      console.log(WSVault.getServerEndpoint())
+      CVault.setServerEndpoint(serverEndpointValue)
+      CVault.setDatabaseName(databaseNameValue)
+      CVault.setUserName(userNameValue)
+      CVault.setUserPassword(passwordValue)
+    }
+    const changeServerEndpointValue = event => {
+      setServerEndpointValueValue(event.target.value)
+    }
+    const changeDatabaseNameValue = event => {
+      setDatabaseNameValue(event.target.value)
+    }
+    const changeUserNameValue = event => {
+      setUserNameValue(event.target.value)
+    }
+    const changePasswordValue = event => {
+      setPasswordValue(event.target.value)
     }
 
     const clearFields = () => {
-      CVault.constantList.SERVERENDPOINT = "Connect to server:  NOT DEFINED"
+      CVault.setServerEndpoint("NOT DEFINED")
       setServerEndpointValueValue('')
       setDatabaseNameValue('')
       setUserNameValue('')
@@ -89,25 +86,20 @@ function ServerPointFieldComponent() {
 
 
         <Container>
-        <Stack spacing={2} sx={{
-              alignItems: 'center',
-            }}>
-          <ButtonGroup
-                  disableElevation
-                  variant="contained"
-                >     
-              <Button onClick={setConfigurationData}
-                  sx={{bgcolor: 'black', width: 100, marginLeft: 1, marginRight: 1}}
-                  >Set
-              </Button>
-                  <Button margin='normal' onClick={clearFields}
-                  sx={{bgcolor: 'black', width: 100, marginLeft: 1, marginRight: 1}}
-                  >Clear
-              </Button> 
-          </ButtonGroup>
-                        
-        </Stack>
-
+          <Box sx={{display: 'flex', justifyContent: "space-evenly"}}>
+            <Button onClick={setConfigurationData}
+              type="submit"
+              variant="contained"
+              sx={{bgcolor: 'black', width: 100, marginLeft: 1, marginRight: 1, ":hover": {color: 'black', backgroundColor: 'white'}}}
+              >Set
+            </Button>
+              <Button onClick={clearFields}
+              type="submit"
+              variant="contained"
+              sx={{bgcolor: 'black', width: 100, marginLeft: 1, marginRight: 1, ":hover": {color: 'black', backgroundColor: 'white'}}}
+              >Clear
+            </Button> 
+          </Box>
         </Container>     
         </>
       );

@@ -5,14 +5,17 @@ export default async function sqlAxiosGetter(rowSQL) {
     try {
       const response = await axios.get(rowSQL, {
         headers: {
-          myHeader: 'header'
+          dataBaseFeetchString: CVault.constantList.SQLFETCHQUERYSTRING,
+          dataBaseName: CVault.constantList.DATABASE,
+          dataBaseuserName: CVault.constantList.USERNAME,
+          dataBaseuserPassword: CVault.constantList.PASWORD,
         },
         params: {
           data: rowSQL
         }
       });
         const responceData = response.data
-        CVault.constantList.SQLRESULT = responceData
+        CVault.setSQLResultValue(responceData)
         return (response)
       } 
       catch (error) {
